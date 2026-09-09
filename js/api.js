@@ -3,8 +3,8 @@ const api = {
         try {
             const response = await fetch('http://localhost:3000/pensamentos');
             return await response.json();
-        } catch (error) {
-            alert('Erro ao buscar pensamentos:', error);
+        } catch(error)  {
+            alert('Erro ao buscar pensamentos!');
             throw error;
         }
     },
@@ -21,7 +21,7 @@ const api = {
             const novoPensamento = await response.json();
             return novoPensamento;
         } catch (error) {
-            alert('Erro ao salvar pensamento:', error);
+            alert('Erro ao salvar pensamento!');
             throw error;
         }
     },
@@ -32,7 +32,7 @@ const api = {
             
             return await response.json();
         } catch (error) {
-            alert('Erro ao buscar pensamento!', error);
+            alert('Erro ao buscar pensamento!');
             throw error;
         }
     },
@@ -49,10 +49,24 @@ const api = {
             const novoPensamento = await response.json();
             return novoPensamento;
         } catch (error) {
-            alert('Erro ao editar pensamento:', error);
+            alert('Erro ao editar pensamento!');
+            throw error;
+        }
+    },
+
+    async excluirPensamento (id){
+        try {
+            const response = await fetch(`http://localhost:3000/pensamentos/${id}`, {
+                method: 'DELETE',
+            });
+            const novoPensamento = await response.json();
+            return novoPensamento;
+        } catch(error)  {
+            alert('Erro ao excluir pensamento!');
             throw error;
         }
     }
+    
 }
 
 export default api;
